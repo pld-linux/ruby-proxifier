@@ -2,15 +2,15 @@
 Summary:	Proxifier is a gem to force ruby to use a proxy
 Name:		ruby-%{pkgname}
 Version:	1.0.3
-Release:	1
+Release:	2
 License:	BSD-like
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
 # Source0-md5:	abfb31d36a2ea4feac73cd2f0363feaa
+Patch0:		%{name}-shebang.patch
 URL:		https://github.com/samuelkadolph/ruby-proxifier
 BuildRequires:	rpm-rubyprov
-BuildRequires:	rpmbuild(macros) >= 1.656
-BuildRequires:	sed >= 4.0
+BuildRequires:	rpmbuild(macros) >= 1.665
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -20,7 +20,7 @@ TCPSocket to use proxies.
 
 %prep
 %setup -q -n %{pkgname}-%{version}
-%{__sed} -i -e '1 s,#!.*ruby,#!%{__ruby},' bin/*
+%patch -P0 -p1
 
 %build
 # write .gemspec

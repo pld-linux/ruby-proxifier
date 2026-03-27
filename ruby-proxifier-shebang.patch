@@ -1,0 +1,16 @@
+--- a/bin/pirb
++++ b/bin/pirb
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env ruby
++#!/usr/bin/ruby
+
+ executable = File.expand_path("../" + Gem.default_exec_format % "irb", Gem.ruby)
+ full_gem_path = Gem.loaded_specs["proxifier"].full_gem_path
+--- a/bin/pruby
++++ b/bin/pruby
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env ruby
++#!/usr/bin/ruby
+
+ executable = Gem.ruby
+ full_gem_path = Gem.loaded_specs["proxifier"].full_gem_path
